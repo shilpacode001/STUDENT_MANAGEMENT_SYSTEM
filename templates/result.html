@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class="text-primary text-center">Welcome {{nme}}</h2>
+<form action="{% url 'logout' %}" method="POST" class="text-end">
+  {% csrf_token %}
+<input type="submit" class="btn btn-primary" value="Logout">
+</form>
+<h2><form action="{% url 'view' %}" method="POST" class="text-start">
+  {% csrf_token %}
+<input type="submit" class="btn btn-success" value="Download New Notes">
+</form></h2>
+<br>
+<h3 class="text-start text-danger">Test score:</h3>
+
+<table class="table">
+<tr><thead>
+    <th>Physics</th><th>Chemistry</th><th>Maths</th>
+  </thead>
+</tr>
+<tbody>
+  
+   <tr>
+    {% if msg %}
+    <div class="alert alert-success">{{msg}}</div>
+    {% endif %}
+
+     <td>{{stud.phy}}</td>
+     <td>{{stud.chem}}</td>  
+     <td>{{stud.math}}</td> 
+     
+   </tr> 
+</tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class="text-primary text-center">Welcome Faculty</h2>
+<form action="{% url 'logout' %}" method="POST" class="text-end">
+  {% csrf_token %}
+<input type="submit" class="btn btn-primary" value="Logout">
+</form>
+
+<h2><button class="btn btn-warning"><a href="{% url 'upload' %}" class="text-white" style="text-decoration: none;">Upload Notes</a></button></h2>
+<h2><button class="btn btn-primary"><a href="{% url 'view' %}" class="text-white" style="text-decoration: none;">View Notes</a></button></h2>
+<h2><button class="btn btn-success"><a href="{% url 'create' %}" class="text-white" style="text-decoration: none;">Enter New Marks</a></button></h2>
+
+<br>
+<!--<table>
+  <th>
+{% for i in alllist %}
+   <tr>
+     <td>{{i}}</td>
+    </tr>
+  {% endfor %}
+  </th>
+  </table> -->
+<h3 class="text-start text-danger">Students Marklist</h3><br>
+<table class="table">
+<tr><thead>
+    <th>Student Name</th><th>Physics</th><th>Chemistry</th><th>Maths</th><th colspan="2">Actions to perform</th>
+  </thead>
+</tr>
+<tbody>
+{% for i in allstud %}
+   <tr>
+     <td>{{i.s_name}}</td>
+     <td>{{i.phy}}</td>
+     <td>{{i.chem}}</td>  
+     <td>{{i.math}}</td> 
+    <td><button class="btn btn-info"><a href="{% url 'update' s_name=i.s_name %}" class="text-white" style="text-decoration: none;">Update</a></button>
+    <button class="btn btn-danger"><a href="{% url 'delete' s_name=i.s_name %}" class="text-white" style="text-decoration: none;">Delete</a></button>
+  </td> 
+   </tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}

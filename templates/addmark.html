@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<button class="btn btn-dark"><a href="{% url 'faculty' %}" class="text-white">Go Back</a></button>
+<br><br>
+<h2 class="text-start">Add New Student Marks </h2><br>
+<form action="" class="text-start" method="POST"> 
+    {% csrf_token %}                        
+<label for="st_name">Student name :</label><br>
+<input type="text" name="st_name"><br><br>  
+<label for="ph">Physics :</label><br>
+<input type="number" name="ph"><br><br>
+<label for="ch">Chemistry :</label><br>
+<input type="number" name="ch"><br><br>
+<label for="ma">Maths :</label><br>
+<input type="number" name="ma"><br><br>
+<input type="Submit" value="Submit" class="btn btn-warning">
+</form>
+
+
+
+
+
+
+{% endblock %}

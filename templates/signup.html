@@ -1,0 +1,39 @@
+{% extends 'home.html' %}
+{% block content %}
+<script>
+    function validate(){
+        a1=document.f1.pwd1.value;
+        b1=document.f1.pwd2.value;
+        if (a1==b1){
+            return true;
+        }
+        else{
+            alert("Passwords doesnot match!");
+            return false;
+        }
+    }
+</script>
+<style>
+.border{
+    border-radius: 10px;
+    background-color: rgb(206, 207, 206);   
+}
+</style>
+<div class="border border-dark my-3 p-3 w-25 mx-auto bg-white text-primary" >
+<h2 class="text-dark">Sign up for new student</h2><br>
+{% if msg1 %}
+<div class="alert alert-info">{{msg1}}</div>
+{% endif %}
+<form name=f1 action="signup" method="POST" onsubmit="return validate()">
+    {% csrf_token %}
+<label for="usern1">Username: </label>
+<input type="text" name="usern1" required><br><br>
+<label for="pwd1">Password: </label>
+<input type="password" name="pwd1" required><br><br>
+<label for="pwd2">Confirm Password: </label>
+<input type="password" name="pwd2" required><br><br>
+<input type="Submit" class="btn btn-danger" value="Signup">
+</form>
+
+</div>
+{% endblock %}

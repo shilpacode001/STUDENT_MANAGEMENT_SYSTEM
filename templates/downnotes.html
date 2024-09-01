@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-center color-primary">Available Notes</h2>
+
+<form action="{% url 'logout' %}" method="POST" class="text-end">
+    {% csrf_token %}
+  <input type="submit" class="btn btn-primary" value="Logout">
+  </form>
+
+
+<br><br>
+<table class="table">
+<thead>
+<tr>
+    <th>File Name</th>
+    <th>Download</th>
+   
+    
+</tr>
+</thead>
+<tbody>
+    {% for i in notes %}
+<tr>
+    <td>{{i.file_name}}</td>
+    <td><a href="{{i.file_upload.url }}" download>{{i.file_upload}}</a></td>
+    
+</tr>
+    {% endfor %}
+</tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "home.html" %}
+
+{% block content %}
+<style>
+    .border{
+        border-radius: 10px;
+        background-color: rgb(206, 207, 206);
+       
+    }
+    input{
+        border-radius: 5px;
+        border-style: solid;
+        border-color:rgb(109, 108, 108); 
+    }
+    button{
+        display: block;
+    }
+</style>
+
+<div class="border border my-3 p-3 w-25 mx-auto">
+    <h2 class="text-center text-danger">Login</h2>
+    <br>
+<form name='log' action="{% url 'login' %}" method="POST"> 
+                    
+    {% csrf_token %}
+    <label for="uname">Username :</label><br>
+<input type="text" name="uname" required><br><br>
+    <label for="pwd">Password :</label><br>
+<input type="password" name="pwd" required>
+<br><br>
+<input class="btn btn-primary text-center" type="Submit" value="Login" style="margin-right: 26px;">
+<button class="btn btn-success"><a href="{% url 'signup' %}" class="text-white" style="text-decoration:none;">Sign up</a></button>   
+</form>
+</div>
+
+{% endblock %}

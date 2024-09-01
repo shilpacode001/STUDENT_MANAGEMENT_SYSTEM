@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-center color-primary">Upload Notes</h2>
+<button class="btn btn-dark"><a href="{% url 'faculty' %}" class="text-white">Go Back</a></button><br><br>
+{% if msg1 %}
+<div class="alert alert-info fade show">{{msg1}}</div>
+{% endif %}
+<form action="" class="form-group" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+{{form.as_p}}
+<input type="Submit" class="btn btn-danger" value="Upload">
+</form>
+
+{% endblock %}

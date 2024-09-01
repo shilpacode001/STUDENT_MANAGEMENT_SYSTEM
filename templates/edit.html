@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<button class="btn btn-dark"><a href="{% url 'faculty' %}" class="text-white">Go Back</a></button>
+<br><br>
+<h2>Update Marks of Student:{{msg}}</h2>
+<form action="" method="POST">                         
+{% csrf_token %}
+<label for="t1">Physics :</label><br>
+<input type="number" name="t1"><br><br>
+<label for="t2">Chemistry :</label><br>
+<input type="number" name="t2"><br><br>
+<label for="t3">Maths :</label><br>
+<input type="number" name="t3">
+<input type="Submit" value="Submit" class="btn btn-warning">
+</form>
+
+
+
+
+
+
+{% endblock %}

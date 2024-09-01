@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-center color-primary">Available Notes</h2>
+
+<button class="btn btn-dark">
+    <a href="{% url 'faculty' %}" class="text-white">Go Back</a>
+</button>
+
+<br><br>
+<table class="table">
+<thead>
+<tr>
+    <th>File Name</th>
+    <th>Download</th>
+    <th>Action</th>
+    
+</tr>
+</thead>
+<tbody>
+    {% for i in notes %}
+<tr>
+    <td>{{i.file_name}}</td>
+    <td><a href="{{i.file_upload.url }}" download>{{i.file_upload}}</a></td>
+    <td><button class="btn btn-danger"><a href="{% url 'deletenote' file_name=i.file_name  %}" class="text-white" style="text-decoration: none;">Delete</a></button></td>
+    
+</tr>
+    {% endfor %}
+</tbody>
+</table>
+
+{% endblock %}
