@@ -5,16 +5,16 @@ A mini student management web application for uploading and managing marklist an
 
 general features
 =================
-login 
-signup for student
+--login 
+--signup for student
 
 features of faculty module
 ==========================
->> upload marks
->> upload notes
+--upload marks
+--upload notes
 
 
 features of student module
 ==========================
->> view marks
->> download available notes
+--view marks
+--download available notes
